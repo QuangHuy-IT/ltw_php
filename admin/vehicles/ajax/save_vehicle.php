@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../../inc/auth.php';
 requireLogin();
 $in = $_POST;
-$owner_id = intval($in['owner_id'] ?? 0);
+$owner_id = intval($in['owner_id'] ?? 0) ?: null;   // 0 ⇒ NULL
 $id = intval($in['vehicle_id'] ?? 0);
 
 try {
