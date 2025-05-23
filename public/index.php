@@ -1,4 +1,26 @@
-<?php require_once __DIR__.'/../config/db.php'; ?>
+<?php
+require_once __DIR__.'/../config/db.php';
+
+/* Top 3 xe vi phạm nhiều nhất */
+$topVehicles = $pdo->query("
+    SELECT v.brand, v.model, COUNT(*) AS cnt
+      FROM violations AS viol
+      JOIN vehicles    AS v ON v.vehicle_id = viol.vehicle_id
+  GROUP BY v.brand, v.model          -- gộp theo Hãng + Model
+  ORDER BY cnt DESC
+     LIMIT 3
+")->fetchAll();
+
+/* Top 3 lỗi vi phạm nhiều nhất – KHÔNG còn JOIN */
+$topFaults = $pdo->query("
+    SELECT description, COUNT(*) AS cnt
+      FROM violations
+  GROUP BY description
+  ORDER BY cnt DESC
+     LIMIT 3
+")->fetchAll();
+?>
+
 <!doctype html>
 <html lang="vi">
 <head>
@@ -22,6 +44,43 @@
           <button class="btn btn-primary" type="submit">Tra cứu</button>
       </div>
   </form>
+
+  <!-- ==== Thống kê nhanh ==== -->
+<div class="row mt-5">
+  <!-- Top 3 xe vi phạm -->
+  <div class="col-md-6 mb-4">
+    <h5 class="text-primary">Top 3 xe vi phạm nhiều nhất</h5>
+    <ul class="list-group shadow-sm">
+      <?php foreach ($topVehicles as $v): ?>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <?= htmlspecialchars($v['brand'].' '.$v['model']) ?>
+          <span class="badge bg-danger rounded-pill"><?= $v['cnt'] ?></span>
+        </li>
+      <?php endforeach; ?>
+      <?php if (empty($topVehicles)): ?>
+        <li class="list-group-item text-muted fst-italic">Chưa có dữ liệu</li>
+      <?php endif; ?>
+    </ul>
+  </div>
+
+  <!-- Top 3 lỗi vi phạm -->
+  <div class="col-md-6 mb-4">
+    <h5 class="text-primary">Top 3 lỗi vi phạm nhiều nhất</h5>
+    <ul class="list-group shadow-sm">
+      <?php foreach ($topFaults as $f): ?>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <?= htmlspecialchars($f['description']) ?>
+          <span class="badge bg-warning rounded-pill"><?= $f['cnt'] ?></span>
+        </li>
+      <?php endforeach; ?>
+      <?php if (empty($topFaults)): ?>
+        <li class="list-group-item text-muted fst-italic">Chưa có dữ liệu</li>
+      <?php endif; ?>
+    </ul>
+  </div>
+</div>
+<!-- ==== /Thống kê nhanh ==== -->
+
 
   <div id="resultCard" class="card mt-5 d-none">
       <div class="card-header">Kết quả tra cứu</div>
