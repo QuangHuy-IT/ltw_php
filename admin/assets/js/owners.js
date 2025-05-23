@@ -31,8 +31,26 @@ function delOwner(id){
 }
 
 function addVehicle(ownerId){
-  $('#ownerTitle').text('Thêm phương tiện');
-  $('#ownerBody').load(`../vehicles/form.php?owner_id=${ownerId}`, () => {
-    new bootstrap.Modal('#ownerModal').show();
-  });
+  const tpl = id => `<button class="btn flex-grow-1 mb-2 w-100" id="${id}"></button>`;
+  $('#ownerTitle').text('Quản lý phương tiện');
+  $('#ownerBody').html(
+      tpl('btnOwned') + tpl('btnLink') + tpl('btnNew') +
+      `<div id="vehicleContent"></div>`
+  );
+  // đặt nhãn + màu
+  $('#btnOwned').addClass('btn-info').text('Xe sở hữu');
+  $('#btnLink') .addClass('btn-success').text('Gán xe chưa có chủ');
+  $('#btnNew')  .addClass('btn-primary').text('Thêm xe mới');
+
+  const mdl = new bootstrap.Modal('#ownerModal'); mdl.show();
+
+  $('#btnOwned').on('click', () =>
+    $('#vehicleContent').load(`vehicle_owned.php?owner_id=${ownerId}`)
+  );
+  $('#btnLink').on('click', () =>
+    $('#vehicleContent').load(`vehicle_select.php?owner_id=${ownerId}`)
+  );
+  $('#btnNew').on('click',  () =>
+    $('#vehicleContent').load(`../vehicles/form.php?owner_id=${ownerId}`)
+  );
 }
