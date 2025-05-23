@@ -9,7 +9,9 @@ function loadOwners(){
        <td>${o.phone??''}</td><td>${o.address??''}</td>
        <td>
          <button class="btn btn-sm btn-warning me-1" onclick="openOwner(${o.owner_id})">Sửa</button>
+         <button class="btn btn-sm btn-success me-1" onclick="addVehicle(${o.owner_id})">Xe</button>
          <button class="btn btn-sm btn-danger" onclick="delOwner(${o.owner_id})">Xóa</button>
+
        </td>
       </tr>`);
     });
@@ -26,4 +28,11 @@ function delOwner(id){
   $.post('ajax/delete_owner.php',{id},r=>{
     if(r.success)loadOwners();else alert(r.message);
   },'json');
+}
+
+function addVehicle(ownerId){
+  $('#ownerTitle').text('Thêm phương tiện');
+  $('#ownerBody').load(`../vehicles/form.php?owner_id=${ownerId}`, () => {
+    new bootstrap.Modal('#ownerModal').show();
+  });
 }

@@ -7,7 +7,7 @@ $title='Danh sách phương tiện'; include __DIR__.'/../inc/header.php';
 <table id="tblVehicles" class="table table-bordered align-middle">
   <thead class="table-light">
     <tr>
-      <th>ID</th><th>Biển số</th><th>Loại</th><th>Hãng</th><th>Màu</th><th width="120">Hành động</th>
+      <th>ID</th><th>Chủ sở hữu</th><th>Biển số</th><th>Loại</th><th>Hãng</th><th>Màu</th><th width="120">Hành động</th>
     </tr>
   </thead>
   <tbody></tbody>

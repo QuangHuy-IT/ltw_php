@@ -9,6 +9,7 @@ function loadTable() {
       tbody.append(`
         <tr>
           <td>${v.vehicle_id}</td>
+          <td>${v.owner_name ?? ''}</td>
           <td>${v.license_plate}</td>
           <td>${v.vehicle_type}</td>
           <td>${v.brand}</td>

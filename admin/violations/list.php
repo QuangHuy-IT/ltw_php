@@ -3,6 +3,7 @@ require_once __DIR__.'/../inc/auth.php'; requireLogin();
 $title='Vi phạm'; include __DIR__.'/../inc/header.php';
 ?>
 <h1 class="mb-3">Vi phạm</h1>
+<button class="btn btn-primary mb-3" onclick="openVio()">+ Thêm</button>
 <table id="tblVio" class="table table-bordered align-middle">
   <thead class="table-light">
     <tr>
@@ -50,4 +51,21 @@ function togglePay(id,status){
   },'json');
 }
 </script>
+<!-- Modal Vi phạm -->
+<div class="modal fade" id="vioModal" tabindex="-1">
+  <div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="vioTitle"></h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    <div class="modal-body" id="vioBody"></div>
+  </div></div>
+</div>
+<script>
+function openVio(id=0){
+  $('#vioTitle').text(id?'Cập nhật vi phạm':'Thêm vi phạm');
+  $('#vioBody').load(`form.php?id=${id}`, ()=> new bootstrap.Modal('#vioModal').show());
+}
+</script>
+
 <?php include __DIR__.'/../inc/footer.php'; ?>

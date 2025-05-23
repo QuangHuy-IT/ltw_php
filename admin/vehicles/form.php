@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__.'/../inc/auth.php'; requireLogin();
 $id = intval($_GET['id'] ?? 0);
+$owner_id = intval($_GET['owner_id'] ?? ($vehicle['owner_id'] ?? 0));
+
 
 $vehicle = ['license_plate'=>'','vehicle_type'=>'','brand'=>'','model'=>'','color'=>''];
 if ($id) {
@@ -11,6 +13,7 @@ if ($id) {
 ?>
 <form id="vehicleForm">
 <input type="hidden" name="vehicle_id" value="<?= $id ?>">
+<input type="hidden" name="owner_id" value="<?= $owner_id ?>">
 <div class="row g-3">
   <div class="col-md-4">
     <label class="form-label">Biển số</label>
