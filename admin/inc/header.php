@@ -22,6 +22,9 @@ require_once __DIR__ . '/auth.php';
       <ul class="navbar-nav me-auto">
         <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>/admin/dashboard.php">Dashboard</a></li>
         <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>/admin/vehicles/list.php">Phương tiện</a></li>
+        <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>/admin/owners/list.php">Chủ sở hữu</a></li>
+        <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>/admin/violations/list.php">Vi phạm</a></li>
+
       </ul>
       <span class="navbar-text me-3"><?= $_SESSION['admin_name'] ?? '' ?></span>
       <a class="btn btn-outline-light btn-sm" href="<?= BASE_URL ?>/admin/logout.php">Logout</a>
