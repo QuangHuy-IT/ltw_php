@@ -8,7 +8,7 @@ $title='Vi phạm'; include __DIR__.'/../inc/header.php';
   <thead class="table-light">
     <tr>
       <th>ID</th><th>Biển số</th><th>Ngày</th><th>Mô tả</th><th>Phạt (₫)</th>
-      <th>TT thanh toán</th><th width="120">Hành động</th>
+      <th>TT thanh toán</th><th width="150">Hành động</th>
     </tr>
   </thead><tbody></tbody>
 </table>

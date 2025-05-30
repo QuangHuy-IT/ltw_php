@@ -1,0 +1,20 @@
+/* Hero gradient */
+.hero {
+  background: linear-gradient(135deg, #0d6efd 0%, #6610f2 100%);
+}
+
+/* Card & list-group “mềm” hơn */
+.card        { border: none; border-radius: 1rem; }
+.card-header { border-bottom: none; background-color: transparent; }
+.list-group-item { border: none; }
+
+/* Badge cỡ vừa */
+.badge { font-size: .9rem; }
+
+/* Highlight input khi focus */
+.form-control:focus {
+  box-shadow: 0 0 0 .2rem rgba(13,110,253,.25);
+}
+
+/* Bảng kết quả */
+#resultCard table { --bs-table-bg: transparent; }

@@ -8,7 +8,7 @@ if ($plate === '') {
     exit;
 }
 
-// Exact match for demo; you can loosen with LIKE if you want
+
 $stmt = $pdo->prepare('SELECT * FROM vehicles WHERE license_plate = ?');
 $stmt->execute([$plate]);
 $vehicle = $stmt->fetch();
