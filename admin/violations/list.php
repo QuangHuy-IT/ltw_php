@@ -23,7 +23,7 @@ function loadVio(){
       tb.append(`<tr>
         <td>${v.violation_id}</td><td>${v.license_plate}</td><td>${v.violation_date}</td>
         <td>${v.description}</td><td>${Number(v.fine_amount).toLocaleString()}</td>
-        <td><span class="badge bg-${v.payment_status==='paid'?'success':'danger'}">${v.payment_status}</span></td>
+        <td><span class="badge bg-${v.payment_status==='đã nộp'?'success':'danger'}">${v.payment_status}</span></td>
         <td>
           <button class="btn btn-sm btn-warning me-1" onclick="editVio(${v.violation_id})">Sửa</button>
           <button class="btn btn-sm btn-info" onclick="togglePay(${v.violation_id},'${v.payment_status}')">Đổi TT</button>
@@ -44,7 +44,7 @@ function editVio(id){
 }
 
 function togglePay(id,status){
-  const next=status==='paid'?'unpaid':'paid';
+  const next=status==='đã nộp'?'chưa nộp':'đã nộp';
   if(!confirm(`Chuyển trạng thái thành ${next}?`))return;
   $.post('ajax/update_payment.php',{id,status:next},r=>{
     if(r.success)loadVio();else alert(r.message);

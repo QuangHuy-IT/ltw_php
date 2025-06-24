@@ -57,10 +57,10 @@ $(function () {
                 <td>${vio.description}</td>
                 <td>${Number(vio.fine_amount).toLocaleString()} ₫</td>
                 <td><span class="badge bg-${
-                  vio.payment_status === "paid" ? "success" : "danger"
+                  vio.payment_status === "đã nộp" ? "success" : "danger"
                 }">
                        ${
-                         vio.payment_status === "paid"
+                         vio.payment_status === "đã nộp"
                            ? "Đã nộp phạt"
                            : "Chưa nộp"
                        }

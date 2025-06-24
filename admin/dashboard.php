@@ -5,7 +5,7 @@ $title='Dashboard'; include __DIR__.'/inc/header.php';
 // Lấy thống kê nhanh
 $totalVehicles   = $pdo->query('SELECT COUNT(*) FROM vehicles')->fetchColumn();
 $totalViolations = $pdo->query('SELECT COUNT(*) FROM violations')->fetchColumn();
-$unpaid          = $pdo->query("SELECT COUNT(*) FROM violations WHERE payment_status='unpaid'")->fetchColumn();
+$unpaid          = $pdo->query("SELECT COUNT(*) FROM violations WHERE payment_status='chưa nộp'")->fetchColumn();
 ?>
 <h1 class="mb-4">Thống kê nhanh</h1>
 <div class="row g-4">

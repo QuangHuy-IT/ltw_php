@@ -11,7 +11,7 @@ if($id){
   ]);
 }else{
   $sql='INSERT INTO violations (vehicle_id, violation_date, description, fine_amount, payment_status)
-        VALUES (?,?,?,?, "unpaid")';
+        VALUES (?,?,?,?, "chưa nộp")';
   $pdo->prepare($sql)->execute([
     $in['vehicle_id'],$in['violation_date'],$in['description'],$in['fine_amount']
   ]);

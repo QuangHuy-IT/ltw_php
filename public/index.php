@@ -47,7 +47,7 @@ $topFaults = $pdo->query("
             <span class="input-group-text bg-white"><i class="fa-solid fa-magnifying-glass"></i></span>
             <input name="license" id="license" type="text"
                    class="form-control"
-                   placeholder="VD: 28A-123.45"
+                   placeholder="VD: 28A-12345"
                    pattern="^[0-9]{2}[A-Z][0-9A-Z]?-?(?:[0-9]{5}|[0-9]{3}\.[0-9]{2})$"
                    required>
             <div class="invalid-feedback">Biển số không hợp lệ.</div>
@@ -111,9 +111,11 @@ $topFaults = $pdo->query("
       </div>
     </div>
   </main>
-
-  <footer class="text-body-secondary py-4 mt-auto text-center small">
-    &copy; <?= date('Y') ?> Tra cứu vi phạm
+  <footer class="text-body-secondary py-4 mt-auto text-center">
+    <div class="small mb-2">&copy; <?= date('Y') ?> Tra cứu vi phạm</div>
+    <a href="../admin/login.php" class="btn btn-sm btn-secondary">
+      <i class="fa-solid fa-lock me-1"></i>Đăng nhập Quản trị
+    </a>
   </footer>
 
   <!-- JS -->
