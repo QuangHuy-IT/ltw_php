@@ -32,14 +32,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <?php if ($error): ?><div class="alert alert-danger"><?= $error ?></div><?php endif; ?>
       <form method="post" class="card card-body">
         <div class="mb-3">
-          <label class="form-label">Username</label>
+          <label class="form-label">Tài khoản</label>
           <input name="username" class="form-control" required>
         </div>
         <div class="mb-3">
-          <label class="form-label">Password</label>
+          <label class="form-label">Mật khâu</label>
           <input type="password" name="password" class="form-control" required>
         </div>
-        <button class="btn btn-primary w-100">Login</button>
+        <button class="btn btn-primary w-100">Đăng nhập</button>
       </form>
     </div>
   </div>

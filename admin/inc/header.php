@@ -14,7 +14,7 @@ require_once __DIR__ . '/auth.php';
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="<?= BASE_URL ?>/admin/dashboard.php">Admin</a>
+    <a class="navbar-brand" href="<?= BASE_URL ?>/admin/dashboard.php">Trang Chủ</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -27,7 +27,7 @@ require_once __DIR__ . '/auth.php';
 
       </ul>
       <span class="navbar-text me-3"><?= $_SESSION['admin_name'] ?? '' ?></span>
-      <a class="btn btn-outline-light btn-sm" href="<?= BASE_URL ?>/admin/logout.php">Logout</a>
+      <a class="btn btn-outline-light btn-sm" href="<?= BASE_URL ?>/admin/logout.php">Đăng Xuất</a>
     </div>
   </div>
 </nav>

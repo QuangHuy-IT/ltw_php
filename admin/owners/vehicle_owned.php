@@ -23,7 +23,7 @@ $rows->execute([$owner_id]);
       <td><?=$v['brand']?></td>
       <td><?=$v['model']?></td>
       <td><?=$v['color']?></td>
-      <!-- nút “Bỏ gán” giữ nguyên nếu bạn đã thêm -->
+      
     </tr>
   <?php endforeach;?>
   </tbody>
